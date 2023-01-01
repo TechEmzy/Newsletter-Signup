@@ -55,7 +55,7 @@ app.post("/", function(req,res){
 
   const options = {
     method: "POST",
-    auth: "Emmy:1234adfe56db1fa88e7641a79d7f6c32-us14"
+    auth: process.env.MAILCHIMP_API_KEY
   }
 
 // Making our request
@@ -88,3 +88,9 @@ app.post("/failure", function(req,res){
 app.listen(process.env.PORT || 3000, function(){
   console.log("server is set up on port 3000");
 });
+
+// API key
+// 1234adfe56db1fa88e7641a79d7f6c32-us14
+
+// List or unique id
+// f70afc8a17
