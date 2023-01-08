@@ -1,5 +1,6 @@
 // jshint esversion: 6
 
+require('dotenv').config();
 //Requiring express and body parser and initializing the constant "app"
 const express= require ("express");
 const bodyParser= require ("body-parser");
@@ -51,7 +52,7 @@ app.post("/", function(req,res){
 
 // Setting up mailchimp
 // Mainchimp url and the list or unique ID to be added at the end of the url.
-  const url = "https://us14.api.mailchimp.com/3.0/lists/f70afc8a17";
+  const url = process.env.MAILCHIMP_URL
 
   const options = {
     method: "POST",
@@ -71,7 +72,7 @@ app.post("/", function(req,res){
 
 // making a request that will get sent back from the Mailchimp server and using JSON Parse to parse it.
   response.on("data", function(data){
-    console.log(JSON.parse(data));
+    // console.log(JSON.parse(data));
   })
 })
 
